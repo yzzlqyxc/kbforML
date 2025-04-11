@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>check if two inputs </title>
+</head>
+<body>
+    <h1>Please input two sentences</h1>
+    <form method="POST">
+        <input type="text" name="first" required>
+        <input type="text" name="second" required>
+        <button type="submit">submit</button>
+    </form>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>

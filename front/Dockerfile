@@ -1,4 +1,4 @@
-From python:3.8-slim
+From python:3.10
 WORKDIR /usr/local/app
 
 COPY a.py ./a.py
