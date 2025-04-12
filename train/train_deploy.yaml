@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: train-serv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: train-app
+  template:
+    metadata:
+      labels:
+        app: train-app
+    spec:
+      containers:
+        - name: train-container
+          image: gcr.io/steam-idiom-450021-s3/train:latest
+          ports:
+            - containerPort: 5002
+          volumeMounts:
+            - name: shared-volume
+              mountPath: /shared
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+      volumes:
+        - name: shared-volume
+          persistentVolumeClaim:
+            claimName: shared-pvc

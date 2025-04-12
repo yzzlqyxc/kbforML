@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inference-serv
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inf-app
+  template:
+    metadata:
+      labels:
+        app: inf-app
+    spec:
+      containers:
+        - name: inf-container
+          image: gcr.io/steam-idiom-450021-s3/inference:latest
+          ports:
+            - containerPort: 5001
+          volumeMounts:
+            - name: shared-volume
+              mountPath: /shared
+      volumes:
+      - name: shared-volume
+        persistentVolumeClaim:
+          claimName: shared-pvc 

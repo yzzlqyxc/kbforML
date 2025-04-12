@@ -4,7 +4,7 @@ metadata:
   name: flask-app
 
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: flask-app
@@ -15,6 +15,7 @@ spec:
     spec:
       containers:
         - name: flask-container
-          image: gcr.io/steam-idiom-450021-s3/test:latest
+          image: gcr.io/steam-idiom-450021-s3/frontend:latest
           ports:
             - containerPort: 5000
+

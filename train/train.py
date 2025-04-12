@@ -23,7 +23,7 @@ def compute_metrics(eval_preds):
 tokenized_datasets = raw_datasets.map(tokenize_function, batched=True)
 data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
-training_args = TrainingArguments("./", eval_strategy="epoch")
+training_args = TrainingArguments("/shared", eval_strategy="epoch")
 model = AutoModelForSequenceClassification.from_pretrained(checkpoint, num_labels=2)
 model = model.to(device)
 

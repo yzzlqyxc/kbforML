@@ -1,9 +1,9 @@
-From pytorch/pytorch:2.1.0-cuda11.8-cudnn8-runtime
+From python:3.10
 WORKDIR /usr/local/app
 
-COPY train.py ./train.py
+COPY inf.py ./inf.py
 COPY requirements.txt ./requirements.txt
 
 RUN pip install -r requirements.txt
 
-CMD ["python", "train.py"]
+CMD ["python", "inf.py"]

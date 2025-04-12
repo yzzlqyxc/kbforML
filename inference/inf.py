@@ -3,10 +3,10 @@ import torch
 import torch.nn.functional as F
 from flask import Flask, request, jsonify
 
-checkpoint = "../train/checkpoint-1377"  
-tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+checkpoint = "/shared/checkpoint-1377"  
+tokenizer = AutoTokenizer.from_pretrained(checkpoint, local_files_only=True)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = AutoModelForSequenceClassification.from_pretrained(checkpoint)
+model = AutoModelForSequenceClassification.from_pretrained(checkpoint, local_files_only=True)
 model = model.to(device)
 
 

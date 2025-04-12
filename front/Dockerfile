@@ -1,9 +1,10 @@
 From python:3.10
 WORKDIR /usr/local/app
 
-COPY a.py ./a.py
-COPY requirement.txt ./requirement.txt
+COPY templates ./templates
+COPY front_end.py ./front_end.py
+COPY requirements.txt ./requirements.txt
 
-RUN pip install -r requirement.txt
+RUN pip install -r requirements.txt
 
-CMD ["python", "a.py"]
+CMD ["python", "front_end.py"]

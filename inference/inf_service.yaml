@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: inference-serv
+spec:
+  type: LoadBalancer
+  selector:
+    app: inf-app
+  ports:
+    - protocol: TCP
+      port: 5001
+      targetPort: 5001

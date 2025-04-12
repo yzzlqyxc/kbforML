@@ -10,7 +10,7 @@ def index():
         first = request.form.get("first")
         second = request.form.get("second")
 
-        url = "http://127.0.0.1:5001/getinf"
+        url = "http://inference-serv:5001/getinf"
         data = {"first":first, "second":second}
         response = requests.post(url, json=data)
 
